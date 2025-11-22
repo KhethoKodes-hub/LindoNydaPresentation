@@ -336,11 +336,6 @@
             z-index: 1;
         }
         
-        /* Full width bento cards */
-        .bento-card.full-width {
-            grid-column: 1 / -1;
-        }
-        
         /* Section headers with animated underline */
         .section-header {
             color: #fff;
@@ -598,6 +593,245 @@
             -webkit-text-fill-color: transparent;
         }
         
+        /* NEW: Progress bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #f093fb);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        /* NEW: Animated counter */
+        .counter {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #667eea, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            margin-right: 20px;
+        }
+        
+        /* NEW: Interactive timeline */
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0;
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-50%);
+        }
+        
+        .timeline-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            width: 22%;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .timeline-item.active {
+            background: rgba(102, 126, 234, 0.2);
+            border-color: rgba(102, 126, 234, 0.5);
+            transform: translateY(-10px);
+        }
+        
+        .timeline-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* NEW: Particle effect */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #fff;
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+        
+        /* NEW: Interactive stats */
+        .stats-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0;
+        }
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            width: 30%;
+            transition: all 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(102, 126, 234, 0.5);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #667eea, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+        }
+        
+        /* NEW: Interactive quiz element */
+        .quiz-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 40px;
+            margin-top: 40px;
+        }
+        
+        .quiz-question {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .quiz-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .quiz-option {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .quiz-option:hover {
+            background: rgba(102, 126, 234, 0.2);
+            border-color: rgba(102, 126, 234, 0.5);
+        }
+        
+        .quiz-option.correct {
+            background: rgba(76, 175, 80, 0.2);
+            border-color: rgba(76, 175, 80, 0.5);
+        }
+        
+        .quiz-option.incorrect {
+            background: rgba(244, 67, 54, 0.2);
+            border-color: rgba(244, 67, 54, 0.5);
+        }
+        
+        /* NEW: Slide transitions */
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+            pointer-events: none;
+        }
+        
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: all;
+        }
+        
+        .slide.prev {
+            transform: translateX(-100%);
+        }
+        
+        /* NEW: Audio player */
+        .audio-player {
+            position: fixed;
+            bottom: 120px;
+            left: 40px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            padding: 15px 25px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 1000;
+        }
+        
+        .audio-control {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .audio-control:hover {
+            background: rgba(102, 126, 234, 0.5);
+        }
+        
+        .audio-title {
+            color: #fff;
+            font-size: 0.9rem;
+        }
+        
         /* Responsive */
         @media (max-width: 992px) {
             .hero-split {
@@ -629,6 +863,32 @@
                 bottom: 120px;
                 right: 20px;
             }
+            
+            .stats-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .stat-card {
+                width: 100%;
+            }
+            
+            .timeline {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .timeline::before {
+                display: none;
+            }
+            
+            .timeline-item {
+                width: 100%;
+            }
+            
+            .quiz-options {
+                grid-template-columns: 1fr;
+            }
         }
         
         @media (max-width: 768px) {
@@ -646,14 +906,13 @@
                 padding: 10px 20px;
                 font-size: 0.9rem;
             }
-        }
-        
-        .slide {
-            display: none;
-        }
-        
-        .slide.active {
-            display: block;
+            
+            .audio-player {
+                bottom: 100px;
+                left: 20px;
+                right: 20px;
+                justify-content: center;
+            }
         }
         
         /* Quote card special styling */
@@ -704,9 +963,25 @@
         <div class="mesh-gradient mesh-3"></div>
     </div>
 
+    <!-- NEW: Progress bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- NEW: Particles -->
+    <div class="particles" id="particles"></div>
+
     <!-- Slide Indicator -->
     <div class="slide-indicator">
-        <span id="currentSlide">01</span> / 06
+        <span id="currentSlide">01</span> / 05
+    </div>
+
+    <!-- NEW: Audio player -->
+    <div class="audio-player">
+        <div class="audio-control" id="playPauseBtn">
+            <i class="fas fa-play"></i>
+        </div>
+        <div class="audio-title">Creative Economy Soundscape</div>
     </div>
 
     <!-- Slide 1: Hero -->
@@ -718,7 +993,23 @@
                         <div class="hero-content">
                             <h1 class="glitch-text" data-text="CREATIVE ECONOMY">CREATIVE ECONOMY</h1>
                             <p class="subtitle-modern">Transforming insights into impact</p>
-                            <p style="color: rgba(255,255,255,0.6); font-size: 1.1rem; line-height: 1.8;">A transformative workshop on creativity, law, business, and culture in South Africa's creative economy. Hosted by NYDA, this masterclass explored ambition, purpose, and creative business acumen.</p>
+                            <p style="color: rgba(255,255,255,0.6); font-size: 1.1rem; line-height: 1.8;">A masterclass in ambition, purpose, and creative business acumen from NYDA's workshop exploring the intersection of creativity, law, business, and culture.</p>
+                            
+                            <!-- NEW: Interactive stats -->
+                            <div class="stats-container">
+                                <div class="stat-card">
+                                    <span class="stat-number" id="stat1">0</span>
+                                    <span class="stat-label">Core Learnings</span>
+                                </div>
+                                <div class="stat-card">
+                                    <span class="stat-number" id="stat2">0</span>
+                                    <span class="stat-label">Partners</span>
+                                </div>
+                                <div class="stat-card">
+                                    <span class="stat-number" id="stat3">0</span>
+                                    <span class="stat-label">Action Points</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="hero-right">
@@ -744,15 +1035,75 @@
         </div>
     </div>
 
-    <!-- Slide 2: Brandscapers & Framework -->
+    <!-- Slide 2: Core Learnings 1-3 -->
     <div class="slide" data-slide="2">
         <div class="slide-container">
             <div class="slide-content">
-                <h2 class="section-header"><i class="fas fa-palette" style="margin-right: 20px;"></i>Brandscapers Framework</h2>
+                <h2 class="section-header"><i class="fas fa-star" style="margin-right: 20px;"></i>Core Learnings</h2>
+                
+                <!-- NEW: Interactive timeline -->
+                <div class="timeline">
+                    <div class="timeline-item active" data-timeline="1">
+                        <strong>Legal Literacy</strong>
+                    </div>
+                    <div class="timeline-item" data-timeline="2">
+                        <strong>Sustainable Career</strong>
+                    </div>
+                    <div class="timeline-item" data-timeline="3">
+                        <strong>Strategic Positioning</strong>
+                    </div>
+                    <div class="timeline-item" data-timeline="4">
+                        <strong>Ownership</strong>
+                    </div>
+                </div>
+                
                 <div class="bento-grid">
-                    <div class="bento-card full-width">
-                        <h3>Owning Your Creative Identity</h3>
-                        <p>Brandscapers provided a powerful framework for creative excellence. The core message: <strong>"We are creators, not assistants to creation."</strong> This fundamental shift emphasizes that being part of Brandscapers means participating in culture building, not just campaigns. The focus is on storytelling, brand positioning, and thinking like a builder rather than a follower.</p>
+                    <div class="bento-card">
+                        <span class="card-number">01</span>
+                        <h3>The Power of Legal Literacy</h3>
+                        <p>Legal literacy isn't optional—it's a competitive advantage. Understanding contract negotiation, IP protection, and artist rights is critical for creatives to protect their value and thrive in the industry.</p>
+                    </div>
+                    <div class="bento-card">
+                        <span class="card-number">02</span>
+                        <h3>Building a Sustainable Creative Career</h3>
+                        <p>A creative career isn't just about talent—it's about sustainability. Treat your craft like a business with focus on funding, innovation, and finding your niche to scale effectively.</p>
+                    </div>
+                    <div class="bento-card">
+                        <span class="card-number">03</span>
+                        <h3>Strategic Positioning: Finding Your Space</h3>
+                        <p>Don't try to fit in any space—find or create the space that needs you. This requires deep self-awareness and understanding of market gaps where you can uniquely contribute.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: Core Learnings 4-5 -->
+    <div class="slide" data-slide="3">
+        <div class="slide-container">
+            <div class="slide-content">
+                <h2 class="section-header"><i class="fas fa-rocket" style="margin-right: 20px;"></i>Strategic Insights</h2>
+                <div class="bento-grid">
+                    <div class="bento-card">
+                        <span class="card-number">04</span>
+                        <h3>Taking Ownership of What You Create</h3>
+                        <p>Young creatives should own parts of the narrative, brands, and business model. We are not just implementers, but co-creators who can drive ideas, lead innovation, and claim value.</p>
+                    </div>
+                    <div class="bento-card">
+                        <span class="card-number">05</span>
+                        <h3>The Opportunity in Collaboration</h3>
+                        <p>Growth happens at the intersection of roles. Leveraging networks across legal, social, and business domains creates more opportunities to build meaningful projects and partnerships.</p>
+                    </div>
+                </div>
+                
+                <!-- NEW: Interactive quiz -->
+                <div class="quiz-container">
+                    <div class="quiz-question">What is the most critical factor for creative success according to the workshop?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-correct="false">Raw talent alone</div>
+                        <div class="quiz-option" data-correct="true">Legal literacy & business acumen</div>
+                        <div class="quiz-option" data-correct="false">Social media presence</div>
+                        <div class="quiz-option" data-correct="false">Access to funding</div>
                     </div>
                 </div>
                 
@@ -764,91 +1115,42 @@
         </div>
     </div>
 
-    <!-- Slide 3: Core Learnings 1-3 -->
-    <div class="slide" data-slide="3">
-        <div class="slide-container">
-            <div class="slide-content">
-                <h2 class="section-header"><i class="fas fa-star" style="margin-right: 20px;"></i>Five Core Learnings</h2>
-                <div class="bento-grid">
-                    <div class="bento-card">
-                        <span class="card-number">01</span>
-                        <h3>The Power of Legal Literacy</h3>
-                        <p>LASA's involvement highlighted how critical it is for creatives to understand contract negotiation, intellectual property (IP) protection, and artist rights. Legal literacy isn't optional—it's a competitive advantage. Many young creatives enter the space without knowing how to protect their value.</p>
-                    </div>
-                    <div class="bento-card">
-                        <span class="card-number">02</span>
-                        <h3>Building a Sustainable Creative Career</h3>
-                        <p>Through panel discussions and pop-up law clinics, it became clear that a creative career isn't just about talent—it's about sustainability. You need to treat your craft like a business, focusing on funding, innovation, and finding your niche to scale. It's not just "be good"; it's "be smart, be protected, and be future-ready."</p>
-                    </div>
-                    <div class="bento-card">
-                        <span class="card-number">03</span>
-                        <h3>Strategic Positioning: Finding Your Space</h3>
-                        <p>Don't try to fit in any space—find or create the space that needs you. Choose the right space to operate in, identify where you can uniquely contribute, and avoid just following trends. This requires deep self-awareness and external understanding of market gaps.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Slide 4: Core Learnings 4-5 -->
+    <!-- Slide 4: SAMRO Gallery -->
     <div class="slide" data-slide="4">
         <div class="slide-container">
             <div class="slide-content">
-                <h2 class="section-header"><i class="fas fa-rocket" style="margin-right: 20px;"></i>Strategic Insights</h2>
-                <div class="bento-grid">
-                    <div class="bento-card">
-                        <span class="card-number">04</span>
-                        <h3>Taking Ownership of What You Create</h3>
-                        <p>Brandscapers Africa's role reinforced that young creatives don't just need to be part of campaigns—they should own parts of the narrative, the brands, and even the business model. For those working inside Brandscapers, this is a powerful reminder: we are not just implementers, but co-creators who can drive ideas, lead innovation, and claim value.</p>
-                    </div>
-                    <div class="bento-card">
-                        <span class="card-number">05</span>
-                        <h3>The Opportunity in Collaboration</h3>
-                        <p>The workshop demonstrated the power of partnership between NYDA's institutional reach, LASA's legal backbone, and Brandscapers' creative energy. Growth happens at the intersection of roles. Leveraging networks across legal, social, and business domains creates more opportunities to build meaningful projects.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Slide 5: SAMRO Gallery -->
-    <div class="slide" data-slide="5">
-        <div class="slide-container">
-            <div class="slide-content">
-                <h2 class="section-header"><i class="fas fa-music" style="margin-right: 20px;"></i>SAMRO Gallery: Cultural Heritage</h2>
-                <p style="color: rgba(255,255,255,0.7); font-size: 1.1rem; margin-bottom: 30px;">SAMRO Gallery added cultural depth to the workshop, showcasing South African music history and the importance of archiving, rights, and royalties.</p>
+                <h2 class="section-header"><i class="fas fa-music" style="margin-right: 20px;"></i>SAMRO Gallery Insights</h2>
                 <div class="gallery-grid">
                     <div class="gallery-card">
                         <i class="fas fa-archive"></i>
                         <h4>Creative Archiving</h4>
-                        <p>SAMRO Gallery teaches how vital it is to preserve creative history, showcasing the legacy of South African composers and cultural storytellers. Every project we work on today becomes a cultural record tomorrow. Creativity is not just content—it is heritage.</p>
+                        <p>Every project becomes a cultural record tomorrow. Creativity is not just content—it is heritage that must be preserved for future generations.</p>
                     </div>
                     <div class="gallery-card">
                         <i class="fas fa-copyright"></i>
                         <h4>Rights & Royalties</h4>
-                        <p>SAMRO is built on protecting music creators' rights. The gallery reinforces how royalties work, copyright registration, and how creators must never detach from the business behind their creativity. Protecting your IP ensures you get paid long after the work is done.</p>
+                        <p>Ownership matters. Protecting your IP ensures you get paid long after the work is done. Never detach from the business behind your creativity.</p>
                     </div>
                     <div class="gallery-card">
                         <i class="fas fa-network-wired"></i>
-                        <h4>Creativity as an Industry</h4>
-                        <p>SAMRO Gallery shows the level of structure, documentation, and strategy behind the South African music industry. The creative field is built on systems, data, licensing, archives, and professional discipline. Creativity is not chaos—it's organized history.</p>
+                        <h4>Industry Structure</h4>
+                        <p>Creativity is not chaos—it's organized history built on systems, data, licensing, archives, and professional discipline.</p>
                     </div>
                     <div class="gallery-card">
                         <i class="fas fa-trophy"></i>
-                        <h4>Celebrating African Excellence</h4>
-                        <p>SAMRO displays the richness of our cultural sound. It's both inspiring and challenging—showing that African creatives have always been ahead. We are not trying to "catch up"; we are continuing a legacy of excellence.</p>
+                        <h4>African Excellence</h4>
+                        <p>African creatives have always been ahead. We are not trying to "catch up"—we are continuing a rich cultural legacy.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Slide 6: Action Points -->
-    <div class="slide" data-slide="6">
+    <!-- Slide 5: Action Points -->
+    <div class="slide" data-slide="5">
         <div class="slide-container">
             <div class="slide-content">
                 <h2 class="section-header"><i class="fas fa-rocket" style="margin-right: 20px;"></i>Action Points Forward</h2>
-                <p style="color: rgba(255,255,255,0.7); font-size: 1.1rem; margin-bottom: 30px;">Strategic actions for Brandscapers and personal development moving forward.</p>
                 <div class="action-container">
                     <div class="action-card">
                         <div class="action-icon">
@@ -856,7 +1158,7 @@
                         </div>
                         <div class="action-text">
                             <strong>Leverage Legal Education</strong>
-                            <p>Push for regular legal-rights training sessions within Brandscapers so our creative teams are literate in IP and contracts. This will empower the team to protect their work and negotiate better deals.</p>
+                            <p>Push for regular legal-rights training sessions within Brandscapers so creative teams are literate in IP and contracts.</p>
                         </div>
                     </div>
                     <div class="action-card">
@@ -865,7 +1167,7 @@
                         </div>
                         <div class="action-text">
                             <strong>Map the Creative Landscape</strong>
-                            <p>Conduct a mini-audit of where Brandscapers can fill unmet needs—whether in underserved creative niches, emerging digital media, or youth-led IP ventures. Identify opportunities for strategic positioning.</p>
+                            <p>Conduct a mini-audit of where Brandscapers can fill unmet needs in underserved niches, digital media, or youth-led IP ventures.</p>
                         </div>
                     </div>
                     <div class="action-card">
@@ -874,7 +1176,7 @@
                         </div>
                         <div class="action-text">
                             <strong>Build Personal Brand</strong>
-                            <p>Using the workshop's lessons, define my own creative identity—what need I fill—and position myself to lead or co-create rather than just contribute. Focus on becoming a thought leader in the creative space.</p>
+                            <p>Define my own creative identity and position myself to lead or co-create rather than just contribute.</p>
                         </div>
                     </div>
                     <div class="action-card">
@@ -883,7 +1185,7 @@
                         </div>
                         <div class="action-text">
                             <strong>Form Partnerships</strong>
-                            <p>Reach out to LASA or similar legal-creative organizations to structure support for our creative talent, making Brandscapers not just a service agency, but a creative incubator that nurtures and protects artists.</p>
+                            <p>Reach out to LASA and similar organizations to structure support for creative talent, making Brandscapers a creative incubator.</p>
                         </div>
                     </div>
                     <div class="action-card">
@@ -892,7 +1194,7 @@
                         </div>
                         <div class="action-text">
                             <strong>Adopt Excellence + Persistence</strong>
-                            <p>Commit to continuous learning (skills + mindset) and to seizing, or creating, opportunities that align with Brandscapers' mission and my own growth trajectory. Stay future-ready.</p>
+                            <p>Commit to continuous learning and seizing opportunities that align with Brandscapers' mission and my own growth.</p>
                         </div>
                     </div>
                 </div>
@@ -907,7 +1209,6 @@
         <div class="nav-dot" onclick="goToSlide(3)"></div>
         <div class="nav-dot" onclick="goToSlide(4)"></div>
         <div class="nav-dot" onclick="goToSlide(5)"></div>
-        <div class="nav-dot" onclick="goToSlide(6)"></div>
     </div>
 
     <!-- Navigation Arrows -->
@@ -923,12 +1224,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         let currentSlideIndex = 1;
-        const totalSlides = 6;
+        const totalSlides = 5;
+        let isPlaying = false;
+        let audioContext;
+        let oscillator;
 
         function updateSlideDisplay() {
             // Hide all slides
             document.querySelectorAll('.slide').forEach(slide => {
-                slide.classList.remove('active');
+                slide.classList.remove('active', 'prev');
             });
 
             // Show current slide
@@ -942,15 +1246,21 @@
                 dot.classList.toggle('active', index + 1 === currentSlideIndex);
             });
 
-            // Trigger animation reset
-            const activeSlide = document.querySelector('.slide.active');
-            activeSlide.style.animation = 'none';
-            setTimeout(() => {
-                activeSlide.style.animation = '';
-            }, 10);
+            // Update progress bar
+            document.getElementById('progressBar').style.width = `${(currentSlideIndex / totalSlides) * 100}%`;
+
+            // Trigger animations based on slide
+            if (currentSlideIndex === 1) {
+                animateStats();
+            }
+            
+            if (currentSlideIndex === 2) {
+                activateTimeline(1);
+            }
         }
 
         function changeSlide(direction) {
+            const prevSlideIndex = currentSlideIndex;
             currentSlideIndex += direction;
             
             if (currentSlideIndex < 1) {
@@ -959,13 +1269,140 @@
                 currentSlideIndex = totalSlides;
             }
             
+            // Add transition class for previous slide
+            if (prevSlideIndex !== currentSlideIndex) {
+                document.querySelector(`.slide[data-slide="${prevSlideIndex}"]`).classList.add('prev');
+            }
+            
             updateSlideDisplay();
         }
 
         function goToSlide(slideNumber) {
+            const prevSlideIndex = currentSlideIndex;
             currentSlideIndex = slideNumber;
+            
+            // Add transition class for previous slide
+            if (prevSlideIndex !== currentSlideIndex) {
+                document.querySelector(`.slide[data-slide="${prevSlideIndex}"]`).classList.add('prev');
+            }
+            
             updateSlideDisplay();
         }
+
+        // NEW: Animated counter for stats
+        function animateStats() {
+            const stat1 = document.getElementById('stat1');
+            const stat2 = document.getElementById('stat2');
+            const stat3 = document.getElementById('stat3');
+            
+            animateValue(stat1, 0, 5, 1500);
+            animateValue(stat2, 0, 4, 1500);
+            animateValue(stat3, 0, 5, 1500);
+        }
+        
+        function animateValue(element, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                element.innerHTML = Math.floor(progress * (end - start) + start);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+        
+        // NEW: Interactive timeline
+        function activateTimeline(index) {
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            document.querySelector(`.timeline-item[data-timeline="${index}"]`).classList.add('active');
+        }
+        
+        // NEW: Quiz functionality
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('quiz-option')) {
+                const isCorrect = e.target.getAttribute('data-correct') === 'true';
+                
+                // Reset all options
+                document.querySelectorAll('.quiz-option').forEach(option => {
+                    option.classList.remove('correct', 'incorrect');
+                });
+                
+                // Mark correct/incorrect
+                if (isCorrect) {
+                    e.target.classList.add('correct');
+                } else {
+                    e.target.classList.add('incorrect');
+                    
+                    // Also show the correct answer
+                    document.querySelector('.quiz-option[data-correct="true"]').classList.add('correct');
+                }
+            }
+        });
+        
+        // NEW: Particle system
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Random size
+                const size = Math.random() * 3 + 1;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random animation
+                const duration = Math.random() * 20 + 10;
+                particle.style.animation = `float ${duration}s ease-in-out infinite`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // NEW: Audio functionality
+        function toggleAudio() {
+            const playPauseBtn = document.getElementById('playPauseBtn');
+            const icon = playPauseBtn.querySelector('i');
+            
+            if (!isPlaying) {
+                // Create audio context if not exists
+                if (!audioContext) {
+                    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    oscillator = audioContext.createOscillator();
+                    oscillator.type = 'sine';
+                    oscillator.frequency.setValueAtTime(440, audioContext.currentTime);
+                    
+                    const gainNode = audioContext.createGain();
+                    gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+                    
+                    oscillator.connect(gainNode);
+                    gainNode.connect(audioContext.destination);
+                }
+                
+                oscillator.start();
+                icon.classList.remove('fa-play');
+                icon.classList.add('fa-pause');
+                isPlaying = true;
+            } else {
+                oscillator.stop();
+                audioContext = null;
+                icon.classList.remove('fa-pause');
+                icon.classList.add('fa-play');
+                isPlaying = false;
+            }
+        }
+        
+        document.getElementById('playPauseBtn').addEventListener('click', toggleAudio);
 
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
@@ -973,8 +1410,10 @@
                 changeSlide(-1);
             } else if (e.key === 'ArrowRight') {
                 changeSlide(1);
-            } else if (e.key >= '1' && e.key <= '6') {
+            } else if (e.key >= '1' && e.key <= '5') {
                 goToSlide(parseInt(e.key));
+            } else if (e.key === ' ') {
+                toggleAudio();
             }
         });
 
@@ -1030,6 +1469,15 @@
 
         // Initialize
         updateSlideDisplay();
+        createParticles();
+        
+        // NEW: Timeline click events
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const index = parseInt(this.getAttribute('data-timeline'));
+                activateTimeline(index);
+            });
+        });
     </script>
 </body>
 </html>
