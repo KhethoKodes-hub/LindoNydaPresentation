@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Economy Workshop - Key Learnings</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0f0f0f;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .slide {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+        
+        #slide1 {
+            background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80');
+        }
+        
+        #slide2 {
+            background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&q=80');
+        }
+        
+        #slide3 {
+            background-image: url('https://images.unsplash.com/photo-1531545514256-b1400bc00f31?w=1920&q=80');
+        }
+        
+        #slide4 {
+            background-image: url('https://images.unsplash.com/photo-1511735111819-9a3f7709049c?w=1920&q=80');
+        }
+        
+        #slide5 {
+            background-image: url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1920&q=80');
+        }
+        
+        .slide-content {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 30px;
+            padding: 50px;
+            max-width: 1200px;
+            width: 100%;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+            animation: slideIn 0.8s ease-out;
+            position: relative;
+            z-index: 2;
+            backdrop-filter: blur(10px);
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        h1 {
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            font-size: 2.8rem;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+        
+        h2 {
+            font-weight: 700;
+            color: #764ba2;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+        
+        h3 {
+            font-weight: 600;
+            color: #667eea;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .subtitle {
+            color: #555;
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+        
+        .icon-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 80px;
+            height: 80px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .icon-box:hover {
+            transform: translateY(-10px) rotate(5deg) scale(1.1);
+            box-shadow: 0 25px 60px rgba(102, 126, 234, 0.6);
+        }
+        
+        .learning-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-left: 5px solid #667eea;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .learning-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            transition: left 0.6s;
+        }
+        
+        .learning-card:hover::before {
+            left: 100%;
+        }
+        
+        .learning-card:hover {
+            transform: translateX(15px) translateY(-5px);
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.3);
+            border-left-width: 8px;
+            background: linear-gradient(135deg, #ffffff 0%, #e8ecff 100%);
+        }
+        
+        .learning-card h4 {
+            color: #764ba2;
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            transition: color 0.3s;
+        }
+        
+        .learning-card:hover h4 {
+            color: #667eea;
+        }
+        
+        .learning-card p {
+            color: #333;
+            line-height: 1.8;
+            margin: 0;
+        }
+        
+        .partner-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            margin: 10px;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: default;
+        }
+        
+        .partner-badge:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.6);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+        
+        .action-item {
+            background: linear-gradient(135deg, #ffffff 0%, #f5f7ff 100%);
+            border-radius: 18px;
+            padding: 28px;
+            margin-bottom: 20px;
+            border-left: 5px solid #764ba2;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .action-item::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(102, 126, 234, 0.1);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .action-item:hover::after {
+            width: 500px;
+            height: 500px;
+        }
+        
+        .action-item:hover {
+            transform: translateX(15px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(118, 75, 162, 0.25);
+            border-left-width: 8px;
+        }
+        
+        .action-item i {
+            color: #667eea;
+            margin-right: 15px;
+            font-size: 1.8rem;
+            transition: all 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .action-item:hover i {
+            transform: scale(1.2) rotate(10deg);
+            color: #764ba2;
+        }
+        
+        .action-item strong {
+            color: #764ba2;
+            font-size: 1.15rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .action-item span {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .nav-buttons {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            display: flex;
+            gap: 15px;
+        }
+        
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.95);
+            border: 3px solid #667eea;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            color: #667eea;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-btn:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transform: scale(1.15) translateY(-5px);
+            color: white;
+            border-color: white;
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+        }
+        
+        .nav-btn:active {
+            transform: scale(1.05) translateY(-2px);
+        }
+        
+        .slide-indicator {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            color: #667eea;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .slide-indicator:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+            border-color: #667eea;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        ul li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        ul li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .alert {
+            border: none;
+            border-radius: 15px;
+            padding: 20px;
+            background: linear-gradient(135deg, #e8ecff 0%, #f8f9ff 100%);
+            border-left: 5px solid #667eea;
+            transition: all 0.3s;
+        }
+        
+        .alert:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .slide-content {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            h3 {
+                font-size: 1.2rem;
+            }
+            
+            .icon-box {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
+            }
+            
+            .nav-btn {
+                width: 55px;
+                height: 55px;
+                font-size: 1.3rem;
+            }
+            
+            .slide-indicator {
+                top: 20px;
+                right: 20px;
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .partner-badge {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-indicator">
+        <span id="slideNumber">1</span> / <span id="totalSlides">5</span>
+    </div>
+
+    <!-- Slide 1: Title -->
+    <div class="slide" id="slide1">
+        <div class="slide-content text-center">
+            <div class="icon-box mx-auto">
+                <i class="fas fa-lightbulb"></i>
+            </div>
+            <h1>Creative Economy Workshop</h1>
+            <p class="subtitle">Key Learnings & Strategic Insights</p>
+            <div class="mt-4">
+                <span class="partner-badge">NYDA</span>
+                <span class="partner-badge">LASA</span>
+                <span class="partner-badge">Brandscapers Africa</span>
+                <span class="partner-badge">SAMRO Gallery</span>
+            </div>
+            <p class="mt-4 text-muted" style="font-size: 1.1rem;">A transformative workshop on creativity, law, business, and culture in South Africa's creative economy</p>
+        </div>
+    </div>
+
+    <!-- Slide 2: Core Learnings -->
+    <div class="slide" id="slide2" style="display:none;">
+        <div class="slide-content">
+            <h2><i class="fas fa-star me-3"></i>Five Core Learnings</h2>
+            
+            <div class="learning-card">
+                <h4>1. The Power of Legal Literacy</h4>
+                <p>Legal literacy isn't optional - it's a competitive advantage. Understanding contract negotiation, IP protection, and artist rights is critical for creatives to protect their value.</p>
+            </div>
+            
+            <div class="learning-card">
+                <h4>2. Building a Sustainable Creative Career</h4>
+                <p>A creative career isn't just about talent - it's about sustainability. Treat your craft like a business with focus on funding, innovation, and finding your niche to scale.</p>
+            </div>
+            
+            <div class="learning-card">
+                <h4>3. Strategic Positioning: Finding Your Space</h4>
+                <p>Don't try to fit in any space - find or create the space that needs you. This requires deep self-awareness and understanding of market gaps.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: More Learnings -->
+    <div class="slide" id="slide3" style="display:none;">
+        <div class="slide-content">
+            <h2><i class="fas fa-rocket me-3"></i>Additional Key Insights</h2>
+            
+            <div class="learning-card">
+                <h4>4. Taking Ownership of What You Create</h4>
+                <p>Young creatives should own parts of the narrative, brands, and business model. We are not just implementers, but co-creators who can drive ideas, lead innovation, and claim value.</p>
+            </div>
+            
+            <div class="learning-card">
+                <h4>5. The Opportunity in Collaboration</h4>
+                <p>Growth happens at the intersection of roles. Leveraging networks across legal, social, and business domains creates more opportunities to build meaningful projects.</p>
+            </div>
+            
+            <div class="alert alert-info mt-4">
+                <strong><i class="fas fa-quote-left me-2"></i>Key Message:</strong> "We are creators, not assistants to creation" - Brandscapers Africa
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 4: SAMRO Gallery Insights -->
+    <div class="slide" id="slide4" style="display:none;">
+        <div class="slide-content">
+            <h2><i class="fas fa-music me-3"></i>SAMRO Gallery: Cultural Heritage</h2>
+            
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="learning-card">
+                        <h4>Creative Archiving</h4>
+                        <p>Every project becomes a cultural record tomorrow. Creativity is not just content - it is heritage that must be preserved.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-3">
+                    <div class="learning-card">
+                        <h4>Rights & Royalties</h4>
+                        <p>Ownership matters. Protecting your IP ensures you get paid long after the work is done.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-3">
+                    <div class="learning-card">
+                        <h4>Industry Structure</h4>
+                        <p>Creativity is not chaos - it's organized history built on systems, data, licensing, and professional discipline.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-3">
+                    <div class="learning-card">
+                        <h4>African Excellence</h4>
+                        <p>African creatives have always been ahead. We are not trying to "catch up" - we are continuing a legacy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: Action Points -->
+    <div class="slide" id="slide5" style="display:none;">
+        <div class="slide-content">
+            <h2><i class="fas fa-check-circle me-3"></i>Action Points Going Forward</h2>
+            
+            <div class="action-item">
+                <i class="fas fa-scale-balanced"></i>
+                <span><strong>Leverage Legal Education:</strong> Push for regular legal-rights training sessions within Brandscapers so creative teams are literate in IP and contracts.</span>
+            </div>
+            
+            <div class="action-item">
+                <i class="fas fa-map-marked-alt"></i>
+                <span><strong>Map the Creative Landscape:</strong> Conduct a mini-audit of where Brandscapers can fill unmet needs in underserved niches, digital media, or youth-led IP ventures.</span>
+            </div>
+            
+            <div class="action-item">
+                <i class="fas fa-user-circle"></i>
+                <span><strong>Build Personal Brand:</strong> Define my own creative identity and position myself to lead or co-create rather than just contribute.</span>
+            </div>
+            
+            <div class="action-item">
+                <i class="fas fa-handshake"></i>
+                <span><strong>Form Partnerships:</strong> Reach out to LASA and similar organizations to structure support for creative talent, making Brandscapers a creative incubator.</span>
+            </div>
+            
+            <div class="action-item">
+                <i class="fas fa-trophy"></i>
+                <span><strong>Adopt Excellence + Persistence:</strong> Commit to continuous learning and seizing opportunities that align with Brandscapers' mission and my own growth.</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-buttons">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 5;
+        
+        document.getElementById('totalSlides').textContent = totalSlides;
+        
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            
+            if (n > totalSlides) {
+                currentSlide = 1;
+            }
+            if (n < 1) {
+                currentSlide = totalSlides;
+            }
+            
+            slides.forEach(slide => {
+                slide.style.display = 'none';
+            });
+            
+            document.getElementById('slide' + currentSlide).style.display = 'flex';
+            document.getElementById('slideNumber').textContent = currentSlide;
+            
+            // Update button states
+            document.getElementById('prevBtn').style.opacity = currentSlide === 1 ? '0.5' : '1';
+            document.getElementById('nextBtn').style.opacity = currentSlide === totalSlides ? '0.5' : '1';
+        }
+        
+        function changeSlide(n) {
+            currentSlide += n;
+            if (currentSlide < 1) currentSlide = 1;
+            if (currentSlide > totalSlides) currentSlide = totalSlides;
+            showSlide(currentSlide);
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (e.key === 'ArrowRight') {
+                changeSlide(1);
+            }
+        });
+        
+        // Touch swipe navigation
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                changeSlide(1);
+            }
+            if (touchEndX > touchStartX + 50) {
+                changeSlide(-1);
+            }
+        }
+        
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
